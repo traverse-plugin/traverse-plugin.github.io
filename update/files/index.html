@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Traverse</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<main>
+  <!-- ================= ILLUSTRATOR ================= -->
+  <section id="ai" class="host" hidden>
+    <button id="btnPush" class="primary"><span>Push to After Effects</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 4 12.5 8l-4 4"/></svg></button>
+    <p id="status" class="status"></p>
+
+    <div class="group">
+      <div class="row"><span>Layers</span>
+        <div class="seg" data-opt="split">
+          <button data-v="top" title="One layer per object or group">Split</button>
+          <button data-v="merge" title="Everything in one shape layer">Merge</button>
+          <button data-v="all" title="Every path on its own layer">Explode</button>
+        </div>
+      </div>
+      <div class="row tall"><span>Anchor point</span>
+        <div class="grid9" data-opt="anchor">
+          <button data-v="tl" title="Top left"></button><button data-v="tc" title="Top"></button><button data-v="tr" title="Top right"></button>
+          <button data-v="ml" title="Left"></button><button data-v="c" title="Center"></button><button data-v="mr" title="Right"></button>
+          <button data-v="bl" title="Bottom left"></button><button data-v="bc" title="Bottom"></button><button data-v="br" title="Bottom right"></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <label class="row" title="Rectangles and ellipses stay editable as shapes, not paths"><span>Parametric shapes</span><input type="checkbox" class="sw" data-opt="parametric"></label>
+      <label class="row" title="Off: artwork goes into the comp you have open"><span>Always make a new comp</span><input type="checkbox" class="sw" data-opt="newComp"></label>
+      <label class="row"><span>Center in the comp</span><input type="checkbox" class="sw" data-opt="center"></label>
+      <label class="row"><span>Include guides</span><input type="checkbox" class="sw" data-opt="guides"></label>
+    </div>
+
+    <h2>On arrival</h2>
+    <div class="group">
+      <label class="row" title="Each layer gets the move that suits it: text word by word, lines draw on, small shapes pop, backgrounds stay still"><span>Animate in</span><input type="checkbox" class="sw" data-opt="animateOn"></label>
+      <div class="row" id="animRow"><span>Style</span><select data-opt="animate"><option value="smooth">Smooth</option><option value="bouncy">Bouncy</option><option value="snappy">Snappy</option><option value="soft">Soft fade</option></select></div>
+      <label class="row" title="Every solid colour is driven by a control on one palette layer"><span>Colours on a palette layer</span><input type="checkbox" class="sw" data-opt="linkColors"></label>
+      <label class="row" title="Remembers each object so Sync can update its layer later"><span>Remember for Sync</span><input type="checkbox" class="sw" data-opt="link"></label>
+    </div>
+
+    <h2>More</h2>
+    <div class="group">
+      <button id="btnSync" class="row act" title="Update the layers that came from these objects. Keyframes, effects and parenting stay."><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13 6.5A5.2 5.2 0 0 0 3.6 5M3 9.5A5.2 5.2 0 0 0 12.4 11M3.4 2.6V5h2.4M12.6 13.4V11h-2.4"/></svg><span>Sync changes</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"/></svg></button>
+      <button id="btnComp" class="row act" title="Create a composition sized like the active artboard"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="3.5" width="11" height="9" rx="1.5"/><path d="M8 6v4M6 8h4"/></svg><span>New comp from artboard</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"/></svg></button>
+      <button id="btnGuides" class="row act" title="Send straight guides to the active comp"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 2v12M2 10.5h12"/></svg><span>Send guides</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"/></svg></button>
+      <button id="btnPalette" class="row act" title="Send swatches as a palette layer"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6" cy="6.5" r="3.5"/><circle cx="10" cy="9.5" r="3.5"/></svg><span>Send swatches</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"/></svg></button>
+    </div>
+  </section>
+
+  <!-- ================= AFTER EFFECTS ================= -->
+  <section id="ae" class="host" hidden>
+    <button id="btnPull" class="primary"><span>Send to Illustrator</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9.5M8.5 4 12.5 8l-4 4"/></svg></button>
+    <p id="statusAe" class="status"></p>
+    <div class="group">
+      <label class="row"><span>Put it on a new artboard</span><input type="checkbox" class="sw" data-opt="aeNewArtboard"></label>
+      <label class="row"><span>Include guides</span><input type="checkbox" class="sw" data-opt="aeGuides"></label>
+    </div>
+
+    <h2>Animate selected layers</h2>
+    <div class="group">
+      <div class="row"><span>Style</span><select data-opt="aeAnimate"><option value="smooth">Smooth</option><option value="bouncy">Bouncy</option><option value="snappy">Snappy</option><option value="soft">Soft fade</option></select></div>
+      <button id="btnAnimate" class="row act strong" title="Text rises word by word, lines draw on, small shapes pop, backgrounds stay still"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 3.2v9.6L12.5 8z"/></svg><span>Animate</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"/></svg></button>
+    </div>
+
+    <h2>More</h2>
+    <div class="group">
+      <button id="btnExplode" class="row act" title="One layer per top-level group. Gradients survive."><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="2.5" width="11" height="4" rx="1"/><rect x="2.5" y="9.5" width="11" height="4" rx="1"/></svg><span>Split shape layer by group</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"/></svg></button>
+      <button id="btnAnchors" class="row act" title="Move each anchor point to the centre of its layer"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="1.6"/><path d="M8 2v3M8 11v3M2 8h3M11 8h3"/></svg><span>Center anchor points</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"/></svg></button>
+      <button id="btnArtboard" class="row act" title="Create an artboard sized like the active comp"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="3.5" width="11" height="9" rx="1.5"/><path d="M8 6v4M6 8h4"/></svg><span>New artboard from comp</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"/></svg></button>
+      <button id="btnAeGuides" class="row act" title="Send comp guides to Illustrator"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 2v12M2 10.5h12"/></svg><span>Send guides</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"/></svg></button>
+    </div>
+  </section>
+  <footer id="foot" class="foot"><span id="ver"></span><span id="upd"></span></footer>
+</main>
+<div id="toast" class="toast" hidden></div>
+<script src="js/updater.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Traverse for Illustrator and After Effects</title>
+<meta name="description" content="Send Illustrator artwork to After Effects as layers you can still edit. Gradients, mixed-style text, strokes and masks included.">
+<meta property="og:title" content="Traverse for Illustrator and After Effects">
+<meta property="og:description" content="Illustrator to After Effects in one click, as layers you can still edit.">
+<meta property="og:image" content="img/traverse_D_what_makes_it_across_1x1.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Sora:wght@600&display=swap" rel="stylesheet">
+<!-- META PIXEL: paste the base code from Events Manager here -->
+<style>
+/* Layout: one column of text on warm paper, artwork set beside it; the only colour is the orange-to-pink object. */
+:root{--paper:#f3efe8;--ink:#161412;--mute:#6e675e;--rule:#d9d2c6;--hot:#ff5a2b;--display:"Sora",system-ui,sans-serif;--body:"Figtree",system-ui,sans-serif}
+*{box-sizing:border-box}
+html{color-scheme:light}
+body{margin:0;background:var(--paper);color:var(--ink);font:18px/1.55 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+header{display:flex;justify-content:space-between;align-items:center;padding:26px 0}
+.brand{font:600 22px var(--display);letter-spacing:-.02em}
+.btn{display:inline-block;padding:16px 30px;border-radius:999px;background:var(--ink);color:var(--paper);font-weight:500;text-decoration:none}
+.btn:hover{background:#2c2824}
+.btn:focus-visible{outline:2px solid var(--hot);outline-offset:3px}
+.btn.small{padding:10px 20px;font-size:16px}
+h1,h2{font-family:var(--display);font-weight:600;letter-spacing:-.03em;line-height:1.04;margin:0;text-wrap:balance}
+h1{font-size:clamp(44px,7vw,88px)}
+h2{font-size:clamp(30px,4.2vw,52px)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;padding:40px 0 80px}
+.lead{color:var(--mute);font-size:21px;max-width:30em;margin:22px 0 0}
+.buy{margin-top:30px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.buy small{color:var(--mute);font-size:15px;line-height:1.4}
+img{max-width:100%;display:block;border-radius:6px}
+section{padding:64px 0;border-top:1px solid var(--rule)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+dl{margin:28px 0 0}
+dl div{display:flex;justify-content:space-between;gap:24px;padding:16px 0;border-top:1px solid var(--rule)}
+dl div:last-child{border-bottom:1px solid var(--rule)}
+dt{font-weight:500}
+dd{margin:0;color:var(--mute);text-align:right}
+.faq details{padding:18px 0;border-top:1px solid var(--rule)}
+.faq details:last-child{border-bottom:1px solid var(--rule)}
+.faq summary{cursor:pointer;font-weight:500}
+.faq p{color:var(--mute);margin:10px 0 0;max-width:42em}
+footer{padding:32px 0 64px;color:var(--mute);font-size:14px;border-top:1px solid var(--rule)}
+@media(max-width:820px){.hero,.two{grid-template-columns:1fr;gap:32px}dl div{flex-direction:column;gap:2px}dd{text-align:left}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="brand">Traverse</div>
+  <a class="btn small" href="https://traverseplugin.gumroad.com/l/traverse">Get Traverse</a>
+</header>
+
+<div class="hero">
+  <div>
+    <h1>Illustrator to After Effects in one click</h1>
+    <p class="lead">Select the artwork, press Push. It shows up in your comp as shape and text layers you can still edit, so you skip the import and the rebuild.</p>
+    <div class="buy"><a class="btn" href="https://traverseplugin.gumroad.com/l/traverse">Get Traverse for $39</a><small>Launch price, paid once<br>Refund within 14 days if it is not for you</small></div>
+  </div>
+  <img src="img/traverse_A_one_click_4x5.png" alt="Artwork from an Illustrator artboard shown as separate After Effects layers">
+</div>
+
+<section>
+  <h2>What makes it across</h2>
+  <dl>
+    <div><dt>Gradients</dt><dd>linear and radial, on fills and strokes, every stop</dd></div>
+    <div><dt>Text</dt><dd>still editable, with each font, size and colour in the line</dd></div>
+    <div><dt>Strokes</dt><dd>dashes, caps and joins</dd></div>
+    <div><dt>Clipping masks</dt><dd>as layer masks</dd></div>
+    <div><dt>CMYK documents</dt><dd>colours converted properly</dd></div>
+    <div><dt>Rectangles and ellipses</dt><dd>kept parametric</dd></div>
+    <div><dt>Guides and swatches</dt><dd>when you want them</dd></div>
+    <div><dt>After Effects to Illustrator</dt><dd>shapes, text and solids, the other way round</dd></div>
+  </dl>
+</section>
+
+<section>
+  <div class="two">
+    <img src="img/traverse_B_keep_keyframes_4x5.png" alt="A shape changes while its keyframes stay where they were">
+    <div>
+      <h2>Change the design, keep the keyframes</h2>
+      <p class="lead">The client wants a different logo after you animated the old one. Fix it in Illustrator and press Sync. The layer in After Effects takes the new shape, colour or wording, and its keyframes, effects and parenting stay as they were.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="two">
+    <div>
+      <h2>Layers arrive already animated</h2>
+      <p class="lead">Traverse looks at each layer and gives it a move that fits. Headlines come in word by word, lines draw on, small shapes pop, and the background stays still. Pick one of four styles and adjust from there.</p>
+    </div>
+    <img src="img/traverse_C_arrive_animated_4x5.png" alt="Five discs arriving one after another">
+  </div>
+</section>
+
+<section class="faq">
+  <h2>Questions</h2>
+  <details><summary>What do I need?</summary><p>Illustrator and After Effects 2026 on macOS. Gradients need After Effects 2026, and mixed text styles need 24.3 or newer. Windows is being tested.</p></details>
+  <details><summary>Is it a subscription?</summary><p>No. You pay once and keep it, with a year of updates.</p></details>
+  <details><summary>What does not transfer?</summary><p>Freeform gradients, meshes, patterns and live effects arrive as an image in the right place. Going from After Effects to Illustrator you get the current frame as vectors, without effects or animation.</p></details>
+</section>
+
+<footer>Traverse is an independent product. Adobe, Illustrator and After Effects are trademarks of Adobe Inc. Traverse is not affiliated with or endorsed by Adobe.</footer>
+</div>
+</body>
+</html>
